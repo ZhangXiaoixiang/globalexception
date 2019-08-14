@@ -48,7 +48,7 @@ public class UserApi {
      *
      * @return
      */
-    @RequestMapping("/test3")
+    @GetMapping("/test3")
     public ResultVO customException() {
         System.out.println("=====>service自定义异常");
         //service自定义异常
