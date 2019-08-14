@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserApi {
     @Autowired
     private UserService userService;
+
     /**
      * 模拟controller异常
      */
@@ -37,8 +38,20 @@ public class UserApi {
     @GetMapping("/test2")
     public ResultVO getServiceException() {
         System.out.println("=====>service异常");
-        //service跑出异常
-        String user = userService.getServiceException();
+        //service抛出异常
+        String user = null;
+
+        //1 手动try那么可用获取异常真实信息,  优点是方便找到异常信息
+        // try {
+        //     user = userService.getServiceException();
+        //     return ResultData.success("查询成功!", user);
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        //     return ResultData.error(e.getMessage());
+        // }
+
+        //    2 不try那么直接处理为最外层异常,  优点是代码可用很简洁
+        user = userService.getServiceException();
         return ResultData.success("查询成功!", user);
 
     }
@@ -56,7 +69,6 @@ public class UserApi {
         return ResultData.success("查询成功!", user1);
 
     }
-
 
 
 }
