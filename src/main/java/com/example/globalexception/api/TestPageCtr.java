@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * TestPageCtr:
+ * TestPageCtr:测试跳转页面
  *
  * @author zhangxiaoxiang
  * @date: 2019/06/26

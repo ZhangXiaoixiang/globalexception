@@ -5,6 +5,7 @@ import com.example.globalexception.result.ResultData;
 import com.example.globalexception.result.ResultVO;
 import com.example.globalexception.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +21,7 @@ public class UserApi {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/get")
+    @GetMapping("/get")
 
     /**
      * 模拟系统异常
