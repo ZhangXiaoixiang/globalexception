@@ -37,7 +37,7 @@ public class ResultData {
      * @param msg
      * @return
      */
-    public static ResultVO failure(String msg) {
+    public static ResultVO error(String msg) {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(500);
         resultVO.setMsg(msg);

@@ -25,14 +25,14 @@ public class MyControllerAdvice {
     @ResponseBody
     @ExceptionHandler(value = Exception.class)
     public ResultVO exceptionHandler(Exception exception) {
-        return ResultData.failure("系统故障");
+        return ResultData.error("系统故障");
     }
 
 
     @ResponseBody
     @ExceptionHandler(value = MyException.class)
     public ResultVO myExceptionHandler(MyException e) {
-        return ResultData.failure(e.getMessage());
+        return ResultData.error(e.getMessage());
         //发生异常进行日志记录，写入数据库或者其他处理，此处省略
     }
 
