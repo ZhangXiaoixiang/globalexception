@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author zhangxiaoxiang
  * @date: 2019/06/25
  */
-@ControllerAdvice  //不指定包默认加了@Controller和@RestController都能控制
-//@ControllerAdvice(basePackages ="com.example.demo.controller")
+ @ControllerAdvice  //不指定包默认加了@Controller和@RestController都能控制
+// @ControllerAdvice(basePackages ="com.example.demo.controller")
 public class MyControllerAdvice {
     /**
      * 全局异常处理，反正异常返回统一格式的

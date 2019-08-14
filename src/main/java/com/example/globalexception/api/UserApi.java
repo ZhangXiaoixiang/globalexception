@@ -1,6 +1,5 @@
 package com.example.globalexception.api;
 
-import com.example.globalexception.exception.MyException;
 import com.example.globalexception.result.ResultData;
 import com.example.globalexception.result.ResultVO;
 import com.example.globalexception.service.UserService;
@@ -20,15 +19,26 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserApi {
     @Autowired
     private UserService userService;
-
-    @GetMapping("/get")
-
     /**
-     * 模拟系统异常
+     * 模拟controller异常
      */
-    public ResultVO getUser() {
+    @GetMapping("/test1")
+    public ResultVO exception() {
+        System.out.println("=====>controller异常");
         String user = "假装我是个user";
         int i = 1 / 0;
+        return ResultData.success("查询成功!", user);
+
+    }
+
+    /**
+     * 模拟service异常
+     */
+    @GetMapping("/test2")
+    public ResultVO getServiceException() {
+        System.out.println("=====>service异常");
+        //service跑出异常
+        String user = userService.getServiceException();
         return ResultData.success("查询成功!", user);
 
     }
@@ -38,10 +48,11 @@ public class UserApi {
      *
      * @return
      */
-    @RequestMapping("/myexc")
-    public ResultVO myexc() {
-        //下面
-        String user1 = userService.getUser();
+    @RequestMapping("/test3")
+    public ResultVO customException() {
+        System.out.println("=====>service自定义异常");
+        //service自定义异常
+        String user1 = userService.customException();
         return ResultData.success("查询成功!", user1);
 
     }
