@@ -5,6 +5,7 @@ import com.example.globalexception.result.ResultVO;
 import com.example.globalexception.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,11 +21,24 @@ public class UserApi {
     @Autowired
     private UserService userService;
 
+
+
+    /**
+     * 正常返回
+     */
+    @RequestMapping("/test")
+    public ResultVO exception() {
+        System.out.println("正常返回");
+        String user = "假装我是个user";
+        return ResultData.success("查询成功!", user);
+
+    }
+
     /**
      * 模拟controller异常
      */
     @GetMapping("/test1")
-    public ResultVO exception() {
+    public ResultVO exception1() {
         System.out.println("=====>controller异常");
         String user = "假装我是个user";
         int i = 1 / 0;
@@ -69,6 +83,16 @@ public class UserApi {
         return ResultData.success("查询成功!", user1);
 
     }
+
+    // api借口路径错误,或者与参数不对应,这种为了友好也应该捕获
+
+//    {
+//     "timestamp": "2019-08-14T06:15:22.022+0000",
+//     "status": 404,
+//     "error": "Not Found",
+//     "message": "No message available",
+//     "path": "/api/user/test22"
+// }
 
 
 }

@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 // @ControllerAdvice(basePackages ="com.example.demo.controller")
 public class MyControllerAdvice {
     /**
-     * 全局异常处理，反正异常返回统一格式的
-     * 发生异常进行日志记录，写入数据库或者其他处理，此处省略
+     * 全局异常处理，反正异常返回统一格式的  ---接口路径正确,但是入参或者服务器响应异常的全局处理
+     * 发生异常进行日志记录，写入数据库或者其他处理，此处省略  ---开发阶段可用不用拦截,这样方便看到异常详情
      *
      * @param exception
      * @return

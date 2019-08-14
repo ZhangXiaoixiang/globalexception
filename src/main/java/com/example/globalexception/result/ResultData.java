@@ -12,7 +12,7 @@ public class ResultData {
     /**
      * 成功返回
      *
-     * @param msg
+     * @param msg 成功返回信息
      * @return
      */
     public static ResultVO success(String msg) {
@@ -23,6 +23,12 @@ public class ResultData {
         return resultVO;
     }
 
+    /**
+     *
+     * @param msg 成功返回信息
+     * @param data 返回数据
+     * @return
+     */
     public static ResultVO success(String msg, Object data) {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(200);
@@ -34,7 +40,7 @@ public class ResultData {
     /**
      * 失败返回
      *
-     * @param msg
+     * @param msg 错误信息
      * @return
      */
     public static ResultVO error(String msg) {
@@ -46,9 +52,23 @@ public class ResultData {
     }
 
     /**
+     * 失败返回
+     * @param code 带状态码
+     * @param msg  错误信息
+     * @return
+     */
+    public static ResultVO error(Integer code,String msg) {
+        ResultVO resultVO = new ResultVO();
+        resultVO.setCode(code);
+        resultVO.setMsg(msg);
+        resultVO.setData(null);
+        return resultVO;
+    }
+
+    /**
      * 身份验证失败返回
      *
-     * @param msg
+     * @param msg 失败信息
      * @return
      */
     public static ResultVO noVerify(String msg) {
